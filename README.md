@@ -2,6 +2,7 @@ Plone Dockerfiles
 =================
 
 ```
+docker build -t ju55i/plonebase base
 docker build -t ju55i/plonezeo zeo
 docker build -t ju55i/ploneinstance instance
 
