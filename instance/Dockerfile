@@ -6,6 +6,6 @@ WORKDIR	     	/usr/local/zope
 VOLUME		/site
 ADD		buildout.cfg /usr/local/zope/
 RUN		buildout
-CMD		bin/instance fg
+CMD		sed -i "s/REPLACEME/$HOSTNAME/g" parts/instance/etc/zope.conf ; bin/instance console
 
 EXPOSE		8080

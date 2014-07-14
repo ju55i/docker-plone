@@ -6,6 +6,6 @@ WORKDIR	     	/usr/local/zope
 VOLUME		/site
 ADD		buildout.cfg /usr/local/zope/
 RUN		buildout
-CMD		bin/zeoserver fg
+CMD		sed -i "s/REPLACEME/$HOSTNAME/g" parts/zeoserver/etc/zeo.conf ; bin/zeoserver fg
 
 EXPOSE		8100
