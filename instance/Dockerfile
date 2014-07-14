@@ -1,10 +1,11 @@
-from       ju55i/plonebase
-MAINTAINER Jussi Talaskivi <jptalask@gmail.com>
+FROM		ju55i/plonebase:4.3-latest
+MAINTAINER	Jussi Talaskivi <jptalask@gmail.com>
 
-workdir	/usr/local/zope
-volume	/site
-add	buildout.cfg /usr/local/zope/
-run	su zope -c "buildout"
-cmd	su zope -c "./bin/instance fg"
+# Everything is run as a zope user
+WORKDIR	     	/usr/local/zope
+VOLUME		/site
+ADD		buildout.cfg /usr/local/zope/
+RUN		buildout
+CMD		bin/instance fg
 
-expose	8080
+EXPOSE		8080
