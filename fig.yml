@@ -2,9 +2,22 @@ zeo:
   build: zeo
   expose:
    - "8100"
-instance:
+instance1:
   build: instance
   links:
    - zeo:zeo
+  expose:
+   - "8080"
+instance2:
+  build: instance
+  links:
+   - zeo:zeo
+  expose:
+   - "8080"
+varnish:
+  build: varnish
+  links:
+   - instance1:instance1
+   - instance2:instance2
   ports:
-   - "8080:8080"
+   - "80:6081"
