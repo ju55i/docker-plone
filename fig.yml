@@ -8,12 +8,16 @@ instance1:
    - zeo:zeo
   expose:
    - "8080"
+  volumes_from:
+   - zeo
 instance2:
   build: instance
   links:
    - zeo:zeo
   expose:
    - "8080"
+  volumes_from:
+   - zeo
 varnish:
   build: varnish
   links:
