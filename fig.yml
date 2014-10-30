@@ -1,0 +1,10 @@
+zeo:
+  build: zeo
+  expose:
+   - "8100"
+instance:
+  build: instance
+  links:
+   - zeo:zeo
+  ports:
+   - "8080:8080"
