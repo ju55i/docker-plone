@@ -4,7 +4,7 @@ MAINTAINER	Jussi Talaskivi <jptalask@gmail.com>
 # Everything is run as a zope user
 WORKDIR	     	/buildout
 ADD		buildout.cfg /buildout/
-RUN		buildout
+RUN		bin/buildout
 CMD		sed -i "s/REPLACEME/$HOSTNAME/g" parts/instance/etc/zope.conf ; bin/instance console
 
 EXPOSE		8080

@@ -1,9 +1,14 @@
 zeo:
   build: zeo
+  hostname: zeo
   expose:
    - "8100"
+  volumes:
+   - ~/tmp/filestorage:/buildout/var/filestorage
+   - ~/tmp/blobstorage:/buildout/var/blobstorage
 instance1:
   build: instance
+  hostname: instance1
   links:
    - zeo:zeo
   expose:
@@ -12,6 +17,7 @@ instance1:
    - zeo
 instance2:
   build: instance
+  hostname: instance2
   links:
    - zeo:zeo
   expose:
