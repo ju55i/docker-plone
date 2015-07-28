@@ -1,29 +1,21 @@
 zeo:
   build: zeo
-  hostname: zeo
   expose:
    - "8100"
   volumes:
-   - ~/tmp/filestorage:/buildout/var/filestorage
-   - ~/tmp/blobstorage:/buildout/var/blobstorage
+   - ./zope-var:/buildout/var
 instance1:
   build: instance
-  hostname: instance1
   links:
    - zeo:zeo
   expose:
    - "8080"
-  volumes_from:
-   - zeo
 instance2:
   build: instance
-  hostname: instance2
   links:
    - zeo:zeo
   expose:
    - "8080"
-  volumes_from:
-   - zeo
 varnish:
   build: varnish
   links:
