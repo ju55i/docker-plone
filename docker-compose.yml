@@ -3,7 +3,7 @@ zeo:
   expose:
    - "8100"
   volumes:
-   - ./zope-var:/buildout/var
+   - ~/Data/zope-var:/buildout/var
 instance1:
   build: instance
   links:
